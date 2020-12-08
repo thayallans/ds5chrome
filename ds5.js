@@ -21,11 +21,11 @@ const setupDualSenseController = () => {
         const initialGamepads = initialGetGamepads.apply(navigator);
         let dualsenseIndex = 5;
         for (let index = 0; index < 4; index++) {
-            if (initialGamepads[index] !== null && initialGamepads[index].id == "Wireless Controller (Vendor: 054c Product: 0ce6)") {
+            if (initialGamepads[index] !== null && ((initialGamepads[index].id == "Wireless Controller (Vendor: 054c Product: 0ce6)") || (initialGamepads[index].id == "DUALSHOCK 4 Wireless Controller (Vendor: 054c Product: 0ce6)"))) {
                 dualsenseIndex = index;
             }
         }
-        
+
         if (dualsenseIndex == 5) {
             return initialGamepads;
         }
