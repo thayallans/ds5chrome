@@ -1,23 +1,15 @@
 {
 	"name": "DS5Chrome",
 	"version": "0.0.1",
-	"description": "DS5Chrome lets you use your DualSense Controller in Chrome. Tesed for Mac.",
-	"background": {
-		"scripts": ["bg.js"],
-		"persistent": false
-	},
+	"description": "DS5Chrome lets you use your DualSense Controller in Chrome.",
 	"content_scripts": [
 		{
 			"matches": [
-				"https://stadia.google.com/*",
-				"https://gamepad-tester.com/*"
+				"<all_urls>"
 			],
 			"js": ["ds5.js"],
 			"run_at": "document_start"
 		}
-	],
-	"permissions": [
-		"storage"
 	],
 	"manifest_version": 2
 }
