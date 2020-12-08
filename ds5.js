@@ -23,6 +23,7 @@ const setupDualSenseController = () => {
         for (let index = 0; index < 4; index++) {
             if (initialGamepads[index] !== null && ((initialGamepads[index].id == "Wireless Controller (Vendor: 054c Product: 0ce6)") || (initialGamepads[index].id == "DUALSHOCK 4 Wireless Controller (Vendor: 054c Product: 0ce6)"))) {
                 dualsenseIndex = index;
+                emulatedDualSense.index = dualsenseIndex;
             }
         }
 
@@ -31,7 +32,7 @@ const setupDualSenseController = () => {
         }
         for(let button = 0; button < buttonCount; button++){
             if (initialGamepads[dualsenseIndex] && initialGamepads[dualsenseIndex].buttons[button]) {
-                // Buttons 0,1,2 are all messed up so here's how we remap them correctly
+                // Buttons 0,1,2 are all messed up so here's how we re-map them correctly
                 if (button == 0) {
                     emulatedDualSense.buttons[2] = initialGamepads[dualsenseIndex].buttons[button];
                     emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
@@ -59,6 +60,7 @@ const setupDualSenseController = () => {
             if (initialGamepads[dualsenseIndex] && initialGamepads[dualsenseIndex].axes[currentAxis]) {
                 if (currentAxis > 2) {
                     if (currentAxis == 9) {
+                        // DPad is Mapped to an Axis... this converts the axis into the DPad Values
                         if (initialGamepads[dualsenseIndex].axes[currentAxis] == 1.2857143878936768) {
                             // Reset all DPad Values
                             emulatedDualSense.buttons[12] = unpressedButton;
@@ -96,6 +98,8 @@ const setupDualSenseController = () => {
                 }
             }
         }
+
+        // Only Apply Emulated Controller on DS5 Controllers
         let newGamepads = []
         for (let index = 0; index < 4; index++) {
             if (index == dualsenseIndex) {
