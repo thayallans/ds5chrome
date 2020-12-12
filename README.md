@@ -2,7 +2,7 @@
 Extends the Gamepad API to let you use your controller in Chrome for sites like Stadia.
 
 ## Download
-https://chrome.google.com/webstore/detail/ds5chrome/iapmmomaihcdpgkblagkodelfkijckfn?hl=en&authuser=0[https://chrome.google.com/webstore/detail/ds5chrome/iapmmomaihcdpgkblagkodelfkijckfn?hl=en&authuser=0]
+https://chrome.google.com/webstore/detail/ds5chrome/iapmmomaihcdpgkblagkodelfkijckfn?hl=en&authuser=0
 
 ## Development Usage
 - `git clone https://github.com/thayallans/ds5chrome.git` to your local machine
