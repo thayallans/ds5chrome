@@ -1,8 +1,10 @@
 ## DualSense5 Support in Chrome
 Extends the Gamepad API to let you use your controller in Chrome for sites like Stadia.
 
-## Usage
-- Uploading the Chrome Store right now and will update this when it's live there
+## Download
+https://chrome.google.com/webstore/detail/ds5chrome/iapmmomaihcdpgkblagkodelfkijckfn?hl=en&authuser=0[https://chrome.google.com/webstore/detail/ds5chrome/iapmmomaihcdpgkblagkodelfkijckfn?hl=en&authuser=0]
+
+## Development Usage
 - `git clone https://github.com/thayallans/ds5chrome.git` to your local machine
 - `chrome://extensions` in Chrome and Turn on Developer Mode
 - Select Load Unpacked and navigate to the `ds5chrome` directory
