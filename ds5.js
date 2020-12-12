@@ -1,5 +1,3 @@
-console.log("YEYE BITCHES")
-
 const setupDualSenseController = () => {
     const buttonCount = 17;
     const axis = 10;
