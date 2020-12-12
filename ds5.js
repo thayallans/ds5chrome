@@ -3,7 +3,7 @@ const setupDualSenseController = () => {
     const axis = 10;
 
     const emulatedDualSense = {
-        id: "DualSense 5 Controller",
+        id: "DualSense 5 Controller (STANDARD GAMEPAD Vendor: 054c Product: 09cc)",
         index: 0,
         connected: true,
         timestamp: 0,
