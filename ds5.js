@@ -59,30 +59,55 @@ const setupDualSenseController = () => {
                 if (currentAxis > 2) {
                     if (currentAxis == 9) {
                         // DPad is Mapped to an Axis... this converts the axis into the DPad Values
-                        if (initialGamepads[dualsenseIndex].axes[currentAxis] == 1.2857143878936768) {
+                        const [dpadU, dpadD, dpadL, dpadR] = [12, 13, 14, 15];
+                        if (initialGamepads[dualsenseIndex].axes[currentAxis] == 1.2857143878936768) { // default, none pressed
                             // Reset all DPad Values
-                            emulatedDualSense.buttons[12] = unpressedButton;
-                            emulatedDualSense.buttons[13] = unpressedButton;
-                            emulatedDualSense.buttons[14] = unpressedButton;
-                            emulatedDualSense.buttons[15] = unpressedButton;
-                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == 0.14285719394683838) {
+                            emulatedDualSense.buttons[dpadU] = unpressedButton;
+                            emulatedDualSense.buttons[dpadD] = unpressedButton;
+                            emulatedDualSense.buttons[dpadL] = unpressedButton;
+                            emulatedDualSense.buttons[dpadR] = unpressedButton;
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == 0.14285719394683838) { // down
                             if (pressedButton) {
-                                emulatedDualSense.buttons[13] = pressedButton;
+                                emulatedDualSense.buttons[dpadD] = pressedButton;
                                 emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
                             }
-                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == -0.4285714030265808) {
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == 0.4285714626312256) { // down + left
                             if (pressedButton) {
-                                emulatedDualSense.buttons[15] = pressedButton;
+                                emulatedDualSense.buttons[dpadD] = pressedButton;
+                                emulatedDualSense.buttons[dpadL] = pressedButton;
                                 emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
                             }
-                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == 0.7142857313156128) {
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == -0.1428571343421936) { // down + right
                             if (pressedButton) {
-                                emulatedDualSense.buttons[14] = pressedButton;
+                                emulatedDualSense.buttons[dpadD] = pressedButton;
+                                emulatedDualSense.buttons[dpadR] = pressedButton;
                                 emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
                             }
-                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == -1) {
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == -0.4285714030265808) { // right
                             if (pressedButton) {
-                                emulatedDualSense.buttons[12] = pressedButton;
+                                emulatedDualSense.buttons[dpadR] = pressedButton;
+                                emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
+                            }
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == 0.7142857313156128) { // left
+                            if (pressedButton) {
+                                emulatedDualSense.buttons[dpadL] = pressedButton;
+                                emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
+                            }
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == -1) { // up
+                            if (pressedButton) {
+                                emulatedDualSense.buttons[dpadU] = pressedButton;
+                                emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
+                            }
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == 1) { // up + left
+                            if (pressedButton) {
+                                emulatedDualSense.buttons[dpadU] = pressedButton;
+                                emulatedDualSense.buttons[dpadL] = pressedButton;
+                                emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
+                            }
+                        } else if (initialGamepads[dualsenseIndex].axes[currentAxis] == -0.7142857313156128) { // up + right
+                            if (pressedButton) {
+                                emulatedDualSense.buttons[dpadU] = pressedButton;
+                                emulatedDualSense.buttons[dpadR] = pressedButton;
                                 emulatedDualSense.timestamp = initialGamepads[dualsenseIndex].timestamp;
                             }
                         }
